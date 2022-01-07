@@ -1,3 +1,4 @@
+import os
 import sqlite3
 import time
 import requests
@@ -23,7 +24,7 @@ def post_wall_vk(name_image):
 
     vk_session.method("wall.post", {
         'owner_id': owner_id,
-        'message': 'Meme is time=)',
+        'message': '=)',
         'attachment': attachments,
     })
 
@@ -84,6 +85,7 @@ def sql_connection(result_id):
             except Exception as poster:
                 print('post error', poster)
 
+            os.remove(f'{get_name(target_url)}')
 
             time.sleep(400)
         else:
